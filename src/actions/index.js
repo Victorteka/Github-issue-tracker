@@ -1,0 +1,19 @@
+import axios from "axios"
+import * as actionTypes from './actionsType'
+
+//Create fetch repo action
+export const searchRepo = (query) => async dispatch =>{
+    try{
+        dispatch({type: actionTypes.START_SEARCH_REPOS, payload: {}})
+        const response = await axios.post('https://api.github.com/graphql', {
+            query: query,
+        },{
+            headers:{
+                Authorization: `bearer ${process.env.REACT_APP_GITHUB_KEY}`
+            }
+        })
+        dispatch({type: actionTypes.SEARCH_REPOS_SUCCESS, payload: response.data.data})
+    }catch(err){
+        console.log(err.message)
+    }
+}
