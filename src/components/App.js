@@ -1,11 +1,12 @@
 import React from 'react'
+import Header from './header/Header';
 
 import RepoList from './repository/RepoList'
 
 function App() {
   return (
       <div>
-        <h1>Github client</h1>
+        <Header />
         <RepoList />
       </div>
   );
