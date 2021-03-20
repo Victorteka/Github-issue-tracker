@@ -29,7 +29,13 @@ const RepoList = (props) => {
                     <BounceLoader />
                 </div>:
                 <div>
-                    <RepoItem repos={props.repos.search.edges} />
+                    {
+                        props.repos.search.edges.map((repo,i)=>(
+                            <div key={i}>
+                                <RepoItem repo={repo} />
+                            </div>
+                        ))
+                    }
                 </div>
             }
         </div>

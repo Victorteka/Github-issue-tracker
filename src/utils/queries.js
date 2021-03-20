@@ -21,17 +21,18 @@ export const QUERY_REPOS = (queryString)=>{
     }`
 }
 
-//Issues query
-// export const GET_REPO_ISSUES = gql`
-//     query($name: String!, $owner: String!) {
-//         repository(name: $name, owner: $owner) {
-//             issues(first: 20, states: [OPEN], orderBy: {field: CREATED_AT, direction: DESC}) {
-//                 nodes {
-//                     title,
-//                     bodyHTML,
-//                     createdAt
-//                 }
-//             }
-//         }
-//     }
-// `
+//Issue query
+export const QUERY_ISSUES = (repoName, owner) =>{
+    return `{
+            repository(name: "${repoName}", owner: "${owner}") {
+                issues(first: 20, states: [OPEN], orderBy: {field: CREATED_AT, direction: DESC}) {
+                    nodes {
+                        title,
+                        bodyHTML,
+                        createdAt
+                    }
+                }
+            }
+    }`
+}
+

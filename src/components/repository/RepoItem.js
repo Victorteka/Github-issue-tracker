@@ -1,15 +1,12 @@
 import React from 'react'
+import IssueList from '../issues/IssueList'
 
-function RepoItem({repos}) {
+function RepoItem({repo}) {
+    const {node: {name, descriptionHTML, owner: {login}, stargazers:{totalCount: totalStarCount}}} = repo
     return (
         <div>
-            {
-                repos.map((repo, i)=>(
-                    <div key={i}>
-                        <h3>{repo.node.name}</h3>
-                    </div>
-                ))
-            }
+            <h4>{name}</h4>
+            <IssueList repoName={name} owner={login} />
         </div>
     )
 }
