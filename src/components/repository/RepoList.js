@@ -4,6 +4,7 @@ import BounceLoader from 'react-spinners/BounceLoader'
 
 import { searchRepo } from '../../actions'
 import { QUERY_REPOS } from '../../utils/queries'
+import RepoItem from './RepoItem'
 
 
 const RepoList = (props) => {
@@ -12,27 +13,28 @@ const RepoList = (props) => {
         props.searchRepo(QUERY_REPOS('React'))
     },[])
 
-    if(props.loading){
+    if(props.error){
         return(
             <div>
-                <BounceLoader />
+                <h1>{props.error}</h1>
             </div>
         )
     }
 
-    if(props.error){
-        return (
-            <div>
-                <h1>Error occured!</h1>
-            </div>
-        )
-    }
-    
-    return (
+    return(
         <div>
-            <h1>Repo</h1>
+            {
+                props.loading?
+                <div>
+                    <BounceLoader />
+                </div>:
+                <div>
+                    <RepoItem repos={props.repos.search.edges} />
+                </div>
+            }
         </div>
     )
+    
 }
 
 const mapStateToProps = (state)=>{

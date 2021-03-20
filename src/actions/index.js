@@ -14,6 +14,7 @@ export const searchRepo = (query) => async dispatch =>{
         })
         dispatch({type: actionTypes.SEARCH_REPOS_SUCCESS, payload: response.data.data})
     }catch(err){
+        dispatch({type: actionTypes.SEARCH_REPOS_FAIL, payload: err.message})
         console.log(err.message)
     }
 }
