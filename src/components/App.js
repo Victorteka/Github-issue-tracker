@@ -1,14 +1,17 @@
+import { Container } from '@material-ui/core';
 import React from 'react'
-import Header from './header/Header';
 
 import RepoList from './repository/RepoList'
+import Header from './header/Header';
 
 function App() {
   return (
-      <div>
+      <>
         <Header />
-        <RepoList />
-      </div>
+        <Container maxWidth={'sm'}>
+          <RepoList />
+        </Container>
+      </>
   );
 }
 

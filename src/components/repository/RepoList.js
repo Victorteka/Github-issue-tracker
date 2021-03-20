@@ -5,6 +5,7 @@ import BounceLoader from 'react-spinners/BounceLoader'
 import { searchRepo } from '../../actions'
 import { QUERY_REPOS } from '../../utils/queries'
 import RepoItem from './RepoItem'
+import './RepoList.css'
 
 
 const RepoList = (props) => {
@@ -25,13 +26,13 @@ const RepoList = (props) => {
         <div>
             {
                 props.loading?
-                <div>
-                    <BounceLoader />
+                <div className="spinner">
+                    <BounceLoader  />
                 </div>:
                 <div>
                     {
                         props.repos.search.edges.map((repo,i)=>(
-                            <div key={i}>
+                            <div repolist__container key={i}>
                                 <RepoItem repo={repo} />
                             </div>
                         ))

@@ -1,0 +1,10 @@
+.spinner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30vh;
+}
+
+.repolist__container{
+    padding-top: 12px;
+}
