@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import BounceLoader from 'react-spinners/BounceLoader'
+import { useDebounce } from 'use-debounce/lib'
 
 import { searchRepo } from '../../actions'
 import { QUERY_REPOS } from '../../utils/queries'
@@ -10,14 +11,16 @@ import './RepoList.css'
 
 const RepoList = (props) => {
 
+    const [debounceSearchTerm] = useDebounce(props.searchTerm, 1000)
+
     useEffect(()=>{
-        props.searchRepo(QUERY_REPOS('React'))
-    },[])
+        props.searchRepo(QUERY_REPOS(debounceSearchTerm?debounceSearchTerm:'javascript'))
+    },[debounceSearchTerm])
 
     if(props.error){
         return(
             <div>
-                <h1>{props.error}</h1>
+                <h3 className='error'>{props.error}</h3>
             </div>
         )
     }
