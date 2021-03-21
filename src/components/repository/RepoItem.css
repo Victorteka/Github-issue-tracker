@@ -18,3 +18,11 @@
 .repo__description{
     padding-top: 15px;
 }
+
+.expand__panel{
+    min-width: 100%;
+}
+.expandIcon{
+    text-align: center;
+    padding-top: 12px;
+}
