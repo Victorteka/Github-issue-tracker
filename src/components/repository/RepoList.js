@@ -11,11 +11,9 @@ import './RepoList.css'
 
 const RepoList = (props) => {
 
-    const [debounceSearchTerm] = useDebounce(props.searchTerm, 1000)
-
     useEffect(()=>{
-        props.searchRepo(QUERY_REPOS(debounceSearchTerm?debounceSearchTerm:'javascript'))
-    },[debounceSearchTerm])
+        props.searchRepo(QUERY_REPOS(props.searchTerm?props.searchTerm:'javascript'))
+    },[props.searchTerm])
 
     if(props.error){
         return(

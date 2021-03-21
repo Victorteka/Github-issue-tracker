@@ -1,0 +1,11 @@
+.footer__container{
+    background-color: #d3d3d3;
+    height: 25vh;
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer__container > p{
+    text-align: center;
+}

@@ -4,6 +4,7 @@ import React, {useState} from 'react'
 import RepoList from './repository/RepoList'
 import Header from './header/Header';
 import SearchBar from './search/SearchBar';
+import Footer from './footer/Footer';
 
 function App() {
   
@@ -16,6 +17,7 @@ function App() {
           <SearchBar value={searchTerm} onChange={setSearchTerm} />
           <RepoList searchTerm={searchTerm} />
         </Container>
+        <Footer />
       </>
   );
 }
