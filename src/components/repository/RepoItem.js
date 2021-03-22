@@ -1,10 +1,9 @@
 import React from 'react'
 import { ExpansionPanelDetails } from '@material-ui/core'
-import { Chip, ExpansionPanel, ExpansionPanelSummary, Accordion } from '@material-ui/core'
+import { Chip, ExpansionPanel, ExpansionPanelSummary } from '@material-ui/core'
 import PeopleIcon from '@material-ui/icons/People'
 import StarIcon from '@material-ui/icons/Star'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-// import ExpandLessIcon from '@material-ui/icons/ExpandLess'
 import { Card } from 'semantic-ui-react'
 
 import IssueList from '../issues/IssueList'

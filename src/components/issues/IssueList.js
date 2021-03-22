@@ -8,8 +8,9 @@ import { QUERY_ISSUES } from '../../utils/queries'
 function IssueList({repoName, owner, fetchIssue,issues, loading}) {
     useEffect(()=>{
         fetchIssue(QUERY_ISSUES(repoName, owner))
-    },[])
+    },[repoName, owner, fetchIssue,issues, loading ])
 
+    
     return (
         <div>
             <h3 style={{textAlign:'centre',color:'green'}}>Issues</h3>

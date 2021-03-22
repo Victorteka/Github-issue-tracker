@@ -14,7 +14,7 @@ const RepoList = (props) => {
 
     useEffect(()=>{
         props.searchRepo(QUERY_REPOS(props.searchTerm?props.searchTerm:'javascript'))
-    },[props.searchTerm])
+    },[props, props.searchTerm])
 
     if(props.error){
         return(
