@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import BounceLoader from 'react-spinners/BounceLoader'
-import { useDebounce } from 'use-debounce/lib'
 
 import { searchRepo } from '../../actions'
 import { QUERY_REPOS } from '../../utils/queries'
@@ -10,6 +9,8 @@ import './RepoList.css'
 
 
 const RepoList = (props) => {
+
+    const [expandRepo, setExpandRepo] = useState(null)
 
     useEffect(()=>{
         props.searchRepo(QUERY_REPOS(props.searchTerm?props.searchTerm:'javascript'))
@@ -34,7 +35,10 @@ const RepoList = (props) => {
                     {
                         props.repos.search.edges.map((repo,i)=>(
                             <div repolist__container key={i}>
-                                <RepoItem repo={repo} />
+                                <RepoItem
+                                 repo={repo}
+                                 expanded={expandRepo===i}
+                                 onToggled = {()=>setExpandRepo(i)} />
                             </div>
                         ))
                     }

@@ -5,14 +5,15 @@ import Issue from './Issue'
 import {fetchIssue} from '../../actions'
 import { QUERY_ISSUES } from '../../utils/queries'
 
-function IssueList({repoName, owner, fetchIssue}) {
-    console.log(owner)
+function IssueList({repoName, owner, fetchIssue,issues, loading}) {
     useEffect(()=>{
         fetchIssue(QUERY_ISSUES(repoName, owner))
     },[])
+
     return (
         <div>
-            <Issue />
+            <h3 style={{textAlign:'centre',color:'green'}}>Issues</h3>
+            <Issue issues={issues.nodes} loading={loading} />
         </div>
     )
 }

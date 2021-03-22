@@ -1,6 +1,6 @@
 import React from 'react'
 import { ExpansionPanelDetails } from '@material-ui/core'
-import { Chip, ExpansionPanel, ExpansionPanelSummary } from '@material-ui/core'
+import { Chip, ExpansionPanel, ExpansionPanelSummary, Accordion } from '@material-ui/core'
 import PeopleIcon from '@material-ui/icons/People'
 import StarIcon from '@material-ui/icons/Star'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -10,12 +10,14 @@ import { Card } from 'semantic-ui-react'
 import IssueList from '../issues/IssueList'
 import './RepoItem.css'
 
-function RepoItem({repo}) {
+function RepoItem({repo, expanded, onToggled}) {
     const {node: {name, descriptionHTML, owner: {login}, stargazers:{totalCount: totalStarCount}}} = repo
     return (
         <div className='card__container'>
         <Card color='green' className='card'>
-            <ExpansionPanel>
+            <ExpansionPanel
+                expanded={expanded}
+                onChange={onToggled}>
                 <ExpansionPanelSummary>
                 <Card.Content  className='expand__panel' >
                     <div className='repo__header'>
@@ -34,7 +36,7 @@ function RepoItem({repo}) {
                 </Card.Content>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    <IssueList />
+                  { expanded && ( <IssueList repoName={name} owner={login} />)}
                 </ExpansionPanelDetails>
                 </ExpansionPanel>
             </Card>
