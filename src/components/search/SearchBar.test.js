@@ -1,4 +1,4 @@
-import {cleanup, fireEvent, getByPlaceholderText, getByText, render} from '@testing-library/react'
+import {cleanup, fireEvent, getByPlaceholderText, getByTestId, getByText, render, screen} from '@testing-library/react'
 
 import SearchBar from './SearchBar'
 
@@ -14,7 +14,10 @@ describe('SearchBar', ()=>{
     })
 
     // it('should check if text is correctly inputted', ()=>{
-    //     fireEvent.change(getByText('Search Repo ...'),{
+    //     const {getByPlaceholderText, getByText} = render(
+    //         <SearchBar />
+    //     )
+    //     fireEvent.change(getByPlaceholderText('Search repo ...'),{
     //         target: {value: 'Javascript'}
     //     })
     //     expect(getByText('Javascript')).toBeInTheDocument
