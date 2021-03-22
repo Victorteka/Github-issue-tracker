@@ -13,13 +13,14 @@ describe('SearchBar', ()=>{
         expect(getByPlaceholderText('Search repo ...')).toBeInTheDocument
     })
 
-    // it('should check if text is correctly inputted', ()=>{
-    //     const {getByPlaceholderText, getByText} = render(
-    //         <SearchBar />
-    //     )
-    //     fireEvent.change(getByPlaceholderText('Search repo ...'),{
-    //         target: {value: 'Javascript'}
-    //     })
-    //     expect(getByText('Javascript')).toBeInTheDocument
-    // })
+    it('should check if text is correctly inputted', ()=>{
+        const onChange = jest.fn()
+        const {getByPlaceholderText, getByText} = render(
+            <SearchBar onChange={onChange} value='' />
+        )
+        fireEvent.change(getByPlaceholderText('Search repo ...'),{
+            target: {value: 'Javascript'}
+        })
+        expect(onChange).toHaveBeenCalledTimes(1)
+    })
 })
