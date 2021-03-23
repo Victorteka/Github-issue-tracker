@@ -1,6 +1,5 @@
 import moment from 'moment'
 import React from 'react'
-import BounceLoader from 'react-spinners/BounceLoader'
 import {List} from 'semantic-ui-react'
 
 function Issue({issues, loading}) {
@@ -11,7 +10,7 @@ function Issue({issues, loading}) {
 
     return (
         <div>
-            {loading? <div style={{padding:'20px'}}><BounceLoader/></div>: issues.map((issue, index)=>(
+            {loading? <div><h3>Loading ...</h3></div>: issues.map((issue, index)=>(
                 <List>
                     <List.Item>
                         <List.Icon name='github' size='large' verticalAlign='middle' />

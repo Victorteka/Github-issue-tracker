@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import BounceLoader from 'react-spinners/BounceLoader'
@@ -14,7 +15,7 @@ const RepoList = (props) => {
 
     useEffect(()=>{
         props.searchRepo(QUERY_REPOS(props.searchTerm?props.searchTerm:'javascript'))
-    },[props, props.searchTerm])
+    },[props.searchTerm])
 
     if(props.error){
         return(

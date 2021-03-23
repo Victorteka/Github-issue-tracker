@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
@@ -8,7 +9,7 @@ import { QUERY_ISSUES } from '../../utils/queries'
 function IssueList({repoName, owner, fetchIssue,issues, loading}) {
     useEffect(()=>{
         fetchIssue(QUERY_ISSUES(repoName, owner))
-    },[repoName, owner, fetchIssue,issues, loading ])
+    },[])
 
     
     return (
